@@ -20,46 +20,16 @@ class UsersController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit()
     {
         //
+        $currentUser = User::find(auth()->id());
+        return view('user.edit',compact('currentUser'));
     }
 
     /**
@@ -69,9 +39,28 @@ class UsersController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request)
     {
         //
+        $currentUser = User::find(auth()->id());
+        $update = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'address' => ['string'],
+            'phone_number' => ['nullable','regex:/(01)[0-9]{9}/']
+        ]);
+        if(!$request->avatar){
+            $update['avatar']=$currentUser->avatar;
+        }
+        if(request()->hasFile('avatar')) {
+            $name = request()->file('avatar')->getClientOriginalName();
+            $path = request()->file('avatar')->storeAs('avatars', $name);
+            if ($path !== $currentUser->avatar) {
+                $update['avatar']=$path;
+            }
+        };
+        $currentUser->update($update);
+        return redirect('/home');
     }
 
     /**

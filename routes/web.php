@@ -20,3 +20,6 @@ Auth::routes();
 
 Route::get('/home', 'UsersController@index')->name('home')->middleware('auth');
 
+//User Route
+Route::get('/admin/user/edit','UsersController@edit')->middleware('auth');
+Route::patch('/admin/user','UsersController@update')->middleware('auth');
