@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','cv_path','address','phone_number','avatar'
     ];
 
     /**
@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getPathAvatarAttribute(){
+        $url= $this->avatar;
+        if(stristr($this->avatar,'http')===false){
+            $url=$this->avatar;
+        }
+        return $url;
+    }
 }

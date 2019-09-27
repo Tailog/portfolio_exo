@@ -13,18 +13,19 @@ const mix = require('laravel-mix');
 
 mix.scripts(
     [
-        'resources/js/jquery.min.js',
-        'resources/js/bootstrap.min.js',
-        'resources/js/wow.js',
-        'resources/js/mixitup.min.js',
-        'resources/js/jquery.fancybox.min.js',
-        'resources/js/owl.carousel.min.js',
-        'resources/js/custom.js',
-        'resources/js/smoothscroll.js'
+        "resources/js/jquery.min.js",
+        "resources/js/bootstrap.min.js",
+        "resources/js/wow.js",
+        "resources/js/mixitup.min.js",
+        "resources/js/jquery.fancybox.min.js",
+        "resources/js/owl.carousel.min.js",
+        "resources/js/custom.js",
+        "resources/js/smoothscroll.js",
+        //JS MDN Input Admin Upload Not Working Added In Public Folder
+        // "node_modules/mdbootstrap/js/mdb.min.js"
     ],
-        'public/js/app.js'
-    )
-   .styles(
+    "public/js/app.js"
+).styles(
     [
         "resources/css/bootstrap.min.css",
         "resources/css/style.css",

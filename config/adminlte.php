@@ -150,83 +150,46 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
-            'search' => true,
-            'topnav' => true,
-        ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Your Profile',
+            'url'  => 'admin/user/edit',
             'icon' => 'fas fa-fw fa-user',
         ],
+        
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'Site Sections',
+            'icon'    => 'fas fa-stream',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Header',
+                    'url'  => 'admin/header/edit',
+                    'icon' => 'fas fa-fw fa-chalkboard-teacher',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text' => 'About',
+                    'url'  => 'admin/about/edit',
+                    'icon' => 'fas fa-fw fa-address-card',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Services',
+                    'url'  => 'admin/services/edit',
+                    'icon' => 'fas fa-fw fa-briefcase',
+                ],
+                [
+                    'text' => 'Why Me ?',
+                    'url'  => 'admin/why_me/edit',
+                    'icon' => 'fas fa-fw fa-question-circle',
+                ],
+                [
+                    'text' => 'Portfolio',
+                    'url'  => 'admin/portfolio/edit',
+                    'icon' => 'fas fa-fw fa-clone',
+                ],
+                [
+                    'text' => 'Contact',
+                    'url'  => 'admin/contact/edit',
+                    'icon' => 'fas fa-fw fa-envelope-open-text',
                 ],
             ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'aqua',
         ],
     ],
 
